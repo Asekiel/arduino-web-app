@@ -1,0 +1,159 @@
+<!-- <div class="logo">
+        <div class="logo-img">
+            <img src="assets/logo.png"/>
+        </div>
+        <h1 class="simple-text">
+            ROVER-19
+        </h1>
+</div>
+
+<div class="sidebar-wrapper"> -->
+    <!-- 
+ <div *ngIf="isMobileMenu()">
+      <form class="navbar-form">
+        <span class="bmd-form-group">
+          <div class="input-group no-border">
+            <input type="text" value="" class="form-control" placeholder="Search...">
+            <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+              <i class="material-icons">search</i>
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+        </span>
+      </form>
+      <ul class="nav navbar-nav nav-mobile-menu">
+          <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)">
+                  <i class="material-icons">dashboard</i>
+                  <p>
+                      <span class="d-lg-none d-md-block">Stats</span>
+                  </p>
+              </a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <span class="notification">5</span>
+                  <p>
+                      <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                  <a class="dropdown-item" href="#">Another Notification</a>
+                  <a class="dropdown-item" href="#">Another One</a>
+              </div>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)">
+                  <i class="material-icons">person</i>
+                  <p>
+                      <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+              </a>
+          </li>
+      </ul>
+    </div> -->
+    <!-- <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link text-muted" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul> -->
+
+
+    <!-- <div class="offcanvas-body p-0">
+        <nav class="navbar">
+            <div class="navbar-nav">
+                <div class="text-muted small fw-bold px-3">
+                    Dashboard
+                </div>
+            </div>
+        </nav>
+    </div> 
+</div> -->
+
+
+
+  <div class="offcanvas offcanvas-start sidebar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+
+    <div class="offcanvas-body p-0">
+        <nav class="navbar-light">
+            <nav class="navbar-nav">
+                <li>
+                    <div class="text-muted small fw-bold d-flex flex-column align-items-center">
+                        <h5>MAIN SECTION</h5>
+                    </div>
+                </li>
+                <li>
+                    <a class="nav-link px-5 active dashboard" routerLink="dashboard">
+                        <span class="me-2">
+                            <i class="material-icons">dashboard</i>
+                        </span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link px-5 active dashboard" routerLink="school-map">
+                        <span class="me-2">
+                            <i class="material-icons">people</i>
+                        </span>
+                        <span>School Map</span>
+                    </a>
+                </li>
+                <li class="my-4">
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <div class="text-muted small fw-bold d-flex flex-column align-items-center">
+                        <h5>Building</h5>
+                    </div>
+                </li>
+                <li>
+                    <a class="nav-link px-5 active dashboard" routerLink="a-building">
+                        <span class="me-2">
+                            <i class="material-icons">dashboard</i>
+                        </span>
+                        <span>A-BULDING</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link px-5 active dashboard" routerLink="c1-building">
+                        <span class="me-2">
+                            <i class="material-icons">dashboard</i>
+                        </span>
+                        <span>C1-BUILDING</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link px-5 active dashboard" routerLink="c2-building">
+                        <span class="me-2">
+                            <i class="material-icons">dashboard</i>
+                        </span>
+                        <span>C2-BUILDING</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link px-5 active dashboard" routerLink="h-building">
+                        <span class="me-2">
+                            <i class="material-icons">dashboard</i>
+                        </span>
+                        <span>H-BUILDING</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link px-5 active dashboard" routerLink="m-building">
+                        <span class="me-2">
+                            <i class="material-icons">dashboard</i>
+                        </span>
+                        <span>M-BUILDING</span>
+                    </a>
+                </li>
+            </nav>
+        </nav>
+    </div>
+  </div>

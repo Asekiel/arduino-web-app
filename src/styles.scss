@@ -1,0 +1,112 @@
+
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+
+
+.card {
+  font-size: .875rem; 
+}
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent; 
+}
+
+div {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: #9c27b0;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+a:hover {
+    color: #0a6ebd;
+    text-decoration: underline; 
+}
+
+ol,
+ul,
+dl {
+margin-top: 0;
+margin-bottom: 1rem; 
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+margin-bottom: 0; 
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+
+.form-container {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+
+  background: #eceff1;
+  padding: 48px;
+  border-radius: 16px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-top {
+  margin-top: 16px !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sidebar[data-color=danger] li.active > a {
+  background-color: #f44336;
+  box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(244 67 54 / 40%);
+}
+
+
+
