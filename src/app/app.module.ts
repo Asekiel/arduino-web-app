@@ -10,28 +10,29 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 
 // Material Design
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LandingComponent } from './components/landing/landing.component';
-import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
-import { NavbarComponent } from './components/navigation/navbar/navbar.component';
-import { SchoolMapComponent } from "./components/building-map/school-map/school-map.component";
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { SchoolMapComponent } from './components/building-map/school-map/school-map.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FirstChartComponent } from './components/widgets/first-chart/first-chart.component';
+import { SecondChartComponent } from './components/widgets/second-chart/second-chart.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse'
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 
-import { HighchartsChartModule } from 'highcharts-angular';
-import { FirstChartComponent } from './components/widgets/first-chart/first-chart.component';
-import { SecondChartComponent } from './components/widgets/second-chart/second-chart.component';
 
-//
 
 @NgModule({
   declarations: [
@@ -47,11 +48,14 @@ import { SecondChartComponent } from './components/widgets/second-chart/second-c
     SecondChartComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,  
+    HighchartsChartModule,
     AppRoutingModule,
     HotToastModule.forRoot(),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    MatTableModule,
+    MatPaginatorModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatIconModule,
@@ -60,9 +64,8 @@ import { SecondChartComponent } from './components/widgets/second-chart/second-c
     MatInputModule,
     MdbCheckboxModule,
     MdbCollapseModule,
-    MdbDropdownModule,
-    MatSidenavModule,
-    HighchartsChartModule
+    MdbDropdownModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare const $ : any;
+
 @Component({
   selector: 'app-school-map',
   templateUrl: './school-map.component.html',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolMapComponent implements OnInit {
 
-  constructor() { }
+  constructor() {  
+}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

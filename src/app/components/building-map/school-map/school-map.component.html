@@ -32,21 +32,14 @@
       </p>
     </div>
   </div> -->
-  <router-outlet></router-outlet>
   <main class="mt-5 pt-5">
-      <div class="container-fluid">
-          <div class="d-flex flex-column align-items-cente school">
-            <img src="assets/jru-map.jpg" usemap="#jru-mapp">
-              <map name="jru-map">
-                <area target="" alt="" title="" routerLink="c1-building" coords="192,498,260,430,674,830,613,898" shape="poly">
-                <area target="" alt="" title="" routerLink="a-building" coords="1343,1001,1675,709" shape="rect">
-                <area shape="rect" coords="452,169,503,190" alt="BUILDING H" href="H-Building.php"> 
-                        <area shape="rect" coords="340,310,390,340" alt="BUILDING C1" href="C1-Building.php">    
-                        <area shape="rect" coords="160,270,210,320" alt="BUILDING C2" href="C2-Building.php">    
-                        <area shape="rect" coords="180,190,240,200" alt="BUILDING A" href="A-Building.php">    
-                        <area shape="rect" coords="695,260,745,270" alt="BUILDING M" href="M-Building.php"> 
+        <img src="assets/mini-map.jpg" alt="map" usemap="#map"> 
+            <map name="map">
+                <area shape="rect" coords="191,248,115,199" alt="c1" routerLink="c1-building">
+                <area shape="rect" coords="482,126,374,81" alt="h" routerLink="h-building">
+                <area shape="rect" coords="332,263,250,217" alt="c2" routerLink="c2-building">
+                <area shape="rect" coords="687,213,605,167" alt="m" routerLink="m-building">
+                <area shape="rect" coords="234,144,152,98" alt="a" routerLink="a-building">
             </map>
-          </div>
-      </div>
-    
-  </main>
+    </main>
+

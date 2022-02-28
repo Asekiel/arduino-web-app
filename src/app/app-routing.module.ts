@@ -18,6 +18,7 @@ import { C1BuildingComponent } from './components/building-map/building/c1-build
 import { C2BuildingComponent } from './components/building-map/building/c2-building/c2-building.component';
 import { HBuildingComponent } from './components/building-map/building/h-building/h-building.component';
 import { MBuildingComponent } from './components/building-map/building/m-building/m-building.component';
+import { MatTableModule } from '@angular/material/table';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -43,50 +44,9 @@ const routes: Routes = [
       },
       {
         path : 'school-map',
-        component : SchoolMapComponent,
-        // children : [
-        //   {
-        //     path : 'a-building',
-        //     component : ABuildingComponent
-        //   },
-        //   {
-        //     path : 'c1-building',
-        //     component : C1BuildingComponent
-        //   },
-        //   {
-        //     path : 'c2-building',
-        //     component : C2BuildingComponent
-        //   },
-        //   {
-        //     path : 'h-building',
-        //     component : HBuildingComponent
-        //   },
-        //   {
-        //     path : 'm-building',
-        //     component : MBuildingComponent
-        //   },
-        // ],
-      },
-          {
-            path : 'a-building',
-            component : ABuildingComponent
-          },
-          {
-            path : 'c1-building',
-            component : C1BuildingComponent
-          },
-          {
-            path : 'c2-building',
-            component : C2BuildingComponent
-          },
-          {
-            path : 'h-building',
-            component : HBuildingComponent
-          },
-          {
-            path : 'm-building',
-            component : MBuildingComponent
-          },
+        loadChildren : () => import('./components/building-map/building-shared.module')
+                              .then(m=>m.BuildingSharedModule),
+      }
     ]
   },
   // {
@@ -96,7 +56,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+            MatTableModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
