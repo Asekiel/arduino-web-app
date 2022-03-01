@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 
 declare const $: any;
@@ -27,8 +28,12 @@ export const ROUTES: RouteInfo[] = [
 export class HomepageComponent implements OnInit {
   sideBarOpen = true;
   menuItems: any[];
-  constructor( private authService : AuthService) { 
+  constructor( private authService : AuthService, private router : ActivatedRoute) { 
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+
+    this.router.params.subscribe( params =>{
+      console.log(params)
+    })
   }
 
   ngOnInit(): void {

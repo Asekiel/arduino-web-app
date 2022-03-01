@@ -35,11 +35,13 @@
   <main class="mt-5 pt-5">
         <img src="assets/mini-map.jpg" alt="map" usemap="#map"> 
             <map name="map">
-                <area shape="rect" coords="191,248,115,199" alt="c1" routerLink="c1-building">
+                <area shape="rect" coords="191,248,115,199" alt="c1" [routerLink]="['c1-building']">
                 <area shape="rect" coords="482,126,374,81" alt="h" routerLink="h-building">
-                <area shape="rect" coords="332,263,250,217" alt="c2" routerLink="c2-building">
+                <area shape="rect" coords="332,263,250,217" alt="c2" [routerLink]="['c2-building']">
                 <area shape="rect" coords="687,213,605,167" alt="m" routerLink="m-building">
-                <area shape="rect" coords="234,144,152,98" alt="a" routerLink="a-building">
+                <area shape="rect" coords="234,144,152,98" alt="a" [routerLink]="['a-building']">
             </map>
+            
+            <router-outlet></router-outlet>
     </main>
 

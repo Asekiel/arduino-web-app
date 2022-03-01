@@ -12,12 +12,29 @@ import { SchoolMapComponent } from './school-map/school-map.component';
 const routes: Routes = [
     {
       path : '',
-      pathMatch : 'full',
-      redirectTo : 'a-building'
-    },
-    {
-        path : 'a-building',
-        component : ABuildingComponent
+      component : SchoolMapComponent,
+      children : [
+          {
+            path : 'a-building',
+            component : ABuildingComponent
+          },
+          {
+            path : 'c1-building',
+            component : C1BuildingComponent
+          },
+          {
+            path : 'c2-building',
+            component : C2BuildingComponent
+          },
+          {
+            path : 'm-building',
+            component : MBuildingComponent
+          },
+          {
+            path : 'h-building',
+            component : HBuildingComponent
+          }
+      ]
     }
   ];
 

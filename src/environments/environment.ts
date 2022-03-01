@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDq1qqyd3GqxVza_jnaJ9PN8nalYqBOY3c",
-    authDomain: "a-rover-app.firebaseapp.com",
-    projectId: "a-rover-app",
-    storageBucket: "a-rover-app.appspot.com",
-    messagingSenderId: "1040961097592",
-    appId: "1:1040961097592:web:e6af8dcace39f36a3f828d",
-    measurementId: "G-421ZDQ35FK"
+    apiKey: "AIzaSyAyogYx29Sfp5QEM6MKuLhrOV-Aq0i88uM",
+    authDomain: "rover-19.firebaseapp.com",
+    databaseURL: "https://rover-19-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "rover-19",
+    storageBucket: "rover-19.appspot.com",
+    messagingSenderId: "226962855215",
+    appId: "1:226962855215:web:f8a654b4b0ede9f12ffdda",
+    measurementId: "G-NH8Z9LDFZD"
   }
 };
 

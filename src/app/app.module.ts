@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
@@ -54,6 +55,7 @@ import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
     HotToastModule.forRoot(),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     MatTableModule,
     MatPaginatorModule,
     ReactiveFormsModule,
