@@ -19,6 +19,7 @@ import { C2BuildingComponent } from './components/building-map/building/c2-build
 import { HBuildingComponent } from './components/building-map/building/h-building/h-building.component';
 import { MBuildingComponent } from './components/building-map/building/m-building/m-building.component';
 import { MatTableModule } from '@angular/material/table';
+import { TestingComponent } from './components/testing/testing.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -37,22 +38,27 @@ const routes: Routes = [
     component: HomepageComponent,
     canActivate: [AngularFireAuthGuard], 
     data: { authGuardPipe: redirectUnauthorizedToLogin },
-    children : [
+     children : [
       {
         path : 'dashboard',
-        component : DashboardComponent,
+        component : DashboardComponent
       },
       {
         path : 'school-map',
         loadChildren : () => import('./components/building-map/building-shared.module')
                               .then(m=>m.BuildingSharedModule),
+      },
+      {
+        path : 'testing',
+        component : TestingComponent
       }
     ]
   },
   // {
   //   path : 'sidebar',
   //   component: SidebarComponent
-  // }
+  // } 
+  
 ];
 
 @NgModule({

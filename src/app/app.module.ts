@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { LandingComponent } from './components/landing/landing.component';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { HighchartsChartModule } from 'highcharts-angular';
@@ -28,12 +29,15 @@ import { SchoolMapComponent } from './components/building-map/school-map/school-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FirstChartComponent } from './components/widgets/first-chart/first-chart.component';
 import { SecondChartComponent } from './components/widgets/second-chart/second-chart.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse'
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+import { TestingComponent } from './components/testing/testing.component';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
-
+// const data = initializeApp(environment.firebase)
+// const database = getDatabase(data);
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
     SchoolMapComponent,
     DashboardComponent,
     FirstChartComponent,
-    SecondChartComponent
+    SecondChartComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,  
@@ -57,6 +62,7 @@ import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatTableModule,
+    MatSidenavModule,
     MatPaginatorModule,
     ReactiveFormsModule,
     MatToolbarModule,
@@ -66,10 +72,15 @@ import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
     MatInputModule,
     MdbCheckboxModule,
     MdbCollapseModule,
-    MdbDropdownModule
+    MdbDropdownModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase))
     
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function provideFirestore(arg0: () => any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+

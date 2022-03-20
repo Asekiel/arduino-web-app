@@ -8,6 +8,11 @@ import { MBuildingComponent } from './building/m-building/m-building.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BuildingSharedRoutingModule } from './building-shared.routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment';
+import { provideFirebaseApp } from '@angular/fire/app';
 
 
 
@@ -25,6 +30,8 @@ import { BuildingSharedRoutingModule } from './building-shared.routing.module';
     BuildingSharedRoutingModule,
     MatTableModule,
     MatPaginatorModule,
+    MatIconModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase))
   ]
 })
 export class BuildingSharedModule { }

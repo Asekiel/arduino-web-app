@@ -1,6 +1,6 @@
 
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
-
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100;200;300;400;500;600;800&display=swap');
 
 
 
@@ -26,7 +26,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Smooch Sans', sans-serif;;
 }
 
 a {

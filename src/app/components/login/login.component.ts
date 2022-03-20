@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class LoginComponent implements OnInit {
 
   registerForm : FormGroup;
-
+  isSubmitted = false;
 
   constructor( private authService : AuthService,
                private auth : AngularFireAuth,
@@ -37,15 +37,19 @@ export class LoginComponent implements OnInit {
     return this.registerForm.get('password');
   }
 
+  get error() {
+    return this.registerForm.controls;
+  }
+
 
   loginUser() {
-
+    this.isSubmitted = true;
     const { email, password } = this.registerForm.value; 
     this.authService.login(email, password).pipe(
       this.toast.observe({
         success: 'Successfully Entered the credentials',
-        loading: 'Logging in...',
-        error: ({ message }) => `There was an error: ${message} `
+        loading: 'Logging in',
+        error : 'Incorrect Credentials'
       })
     ).subscribe(() => {
       this.router.navigate(['/home']);

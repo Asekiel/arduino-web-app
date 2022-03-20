@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 
@@ -25,18 +27,30 @@ export const ROUTES: RouteInfo[] = [
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
-  sideBarOpen = true;
-  menuItems: any[];
-  constructor( private authService : AuthService, private router : ActivatedRoute) { 
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+export class HomepageComponent implements AfterViewInit {
 
-    this.router.params.subscribe( params =>{
-      console.log(params)
-    })
+  @ViewChild(MatSidenav)
+  sidenav : MatSidenav;
+  
+  constructor( private authService : AuthService, private router : ActivatedRoute, private observer : BreakpointObserver) { 
+    // this.menuItems = ROUTES.filter(menuItem => menuItem);
+
+    // this.router.params.subscribe( params =>{
+    //   console.log(params)
+    // })
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.observer.observe(['(max-width: 800px)']).subscribe((res)=>{
+      if(res.matches){
+        this.sidenav.mode ='over';
+        this.sidenav.close()
+      }
+      else{
+        this.sidenav.mode = 'side';
+        this.sidenav.open()
+      }
+    })
   }
 
   logOutUser() {

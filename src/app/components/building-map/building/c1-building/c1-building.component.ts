@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { getDatabase, ref, onValue, Database} from "firebase/database";
+import { Observable } from "rxjs";
 
 export interface PeriodicElement {
   name: string;
@@ -44,10 +46,25 @@ export class C1BuildingComponent implements AfterViewInit  {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { }
+  tables : Observable<any>;
+  constructor( private db: AngularFireDatabase, private database : Database) {
+    this.tables = db.object('tables').valueChanges();
+    
+    console.log(this.tables);
+   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+
+  // readData(value : any) {
+  //   const starCountRef = ref(this.database, 'tables/' +  value.batteryLevel);
+  //   onValue(starCountRef, (snapshot) => {
+  //   const data = snapshot.val();
+    
+  //   console.log(data.batteryLevel)
+  //   });
+  // }
 
 }

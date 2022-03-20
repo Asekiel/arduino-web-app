@@ -7,3 +7,15 @@
         width: 100%;
     }
 }
+
+button {
+    border-radius: 10px;
+    width: 85px;
+    border: none;
+    font-size: 18px;
+    transition: .5s linear;
+  }
+  
+  button:hover {
+    background: #007AA8;
+  }
