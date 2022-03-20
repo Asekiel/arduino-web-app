@@ -32,10 +32,6 @@ export class AuthService {
 
   logOut() {
     return this.auth.signOut().then(() => {
-      this.toast.observe({
-        success : 'LOGGING OUT',
-        loading : 'Logging in...'
-      })
       this.router.navigate(['login'])
     })
   }

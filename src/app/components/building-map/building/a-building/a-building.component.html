@@ -39,7 +39,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <button color="primary" routerLink="/home/school-map">Back</button>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                    showFirstLastButtons 
                    aria-label="Select page of periodic elements">
@@ -76,15 +75,9 @@
             </tr>
           </tbody> -->
         <!-- </table> -->
-
-
-  <div class="custom">
-    <input type="text" class="formats" placeholder="Enter Demo Text    Here…" #input>
-    <button class="btn" type="button" (click)="saveData(input.value)">Save Data</button>
- <hr>
-   <ul>
-    <li *ngFor="let item of data"> {{item}} </li>
-   </ul>
- </div>
   </main>
+  <button mat-icon-button [routerLink]="['/home/school-map']">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
 </div>
+

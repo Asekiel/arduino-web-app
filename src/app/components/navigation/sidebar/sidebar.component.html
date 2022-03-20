@@ -79,7 +79,7 @@
 
 
 
-  <div class="offcanvas offcanvas-start sidebar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <!-- <div class="offcanvas offcanvas-start sidebar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 
     <div class="offcanvas-body p-0">
         <nav class="navbar-light">
@@ -113,47 +113,47 @@
                         <h5>Building</h5>
                     </div>
                 </li>
-                <!-- <li>
-                    <a class="nav-link px-5 active dashboard" routerLink="a-building">
-                        <span class="me-2">
-                            <i class="material-icons">dashboard</i>
-                        </span>
-                        <span>A-BULDING</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link px-5 active dashboard" routerLink="c1-building">
-                        <span class="me-2">
-                            <i class="material-icons">dashboard</i>
-                        </span>
-                        <span>C1-BUILDING</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link px-5 active dashboard" routerLink="c2-building">
-                        <span class="me-2">
-                            <i class="material-icons">dashboard</i>
-                        </span>
-                        <span>C2-BUILDING</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link px-5 active dashboard" routerLink="h-building">
-                        <span class="me-2">
-                            <i class="material-icons">dashboard</i>
-                        </span>
-                        <span>H-BUILDING</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link px-5 active dashboard" routerLink="m-building">
-                        <span class="me-2">
-                            <i class="material-icons">dashboard</i>
-                        </span>
-                        <span>M-BUILDING</span>
-                    </a>
-                </li> -->
             </nav>
         </nav>
+    </div>
+  </div> -->
+
+
+  <div class="navbar">
+      <!-- <div class="top">
+        <mat-icon [inline]="true">all_inclusive</mat-icon>
+      </div> -->
+      <div class="user">
+          <img src="assets/user-rick.png" alt="">
+          <h4 class="name">Rick David</h4>
+          <h4 class="email">rickstakers2122@gmail.com</h4>
+          
+      </div>
+      <div class="menu">
+        <div class="menu-head">
+            <span>Main Section</span>
+        </div>
+        <div class="menu-item">
+            <button mat-button class="menu-button" [routerLink]="['/home']">
+                <mat-icon>house</mat-icon>
+                <span>Home</span>
+            </button>
+            <button mat-button class="menu-button" [routerLink]="['dashboard']">
+                <mat-icon>dashboard</mat-icon>
+                <span>Dashboard</span>
+            </button>
+            <button mat-button class="menu-button" routerLinkActive="active" [routerLink]="['school-map']">
+                <mat-icon>building</mat-icon>
+                <span>School Map</span>
+            </button>
+            <button mat-button class="menu-button" [routerLink]="['testing']">
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
+            </button>
+            <button mat-button class="menu-button" (click)="isLogOut()">
+                <mat-icon>subdirectory_arrow_left</mat-icon>
+                <span>Logout</span>
+            </button>
+        </div>
     </div>
   </div>

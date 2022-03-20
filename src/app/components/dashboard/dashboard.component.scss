@@ -1,7 +1,14 @@
 main {
-    margin-left: 270px;
-  }
+  width: 100%;
+  display: flex;
+  margin-bottom: 40px;
+  
 
-  .first-chart {
-    height: 80vh;
-  }
+  .first-chart{
+    width: 50%;
+}
+
+.second-chart {
+    width: 50%;
+}
+}

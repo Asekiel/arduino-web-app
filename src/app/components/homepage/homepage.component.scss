@@ -2,3 +2,59 @@
 //     position: relative;
 //     left: 90px;
 // }
+
+// mat-toolbar {
+//     background-color: #004a99;
+//     color: #fff;
+// }
+
+// mat-sidenav {
+//     margin: 16px;
+//     width: 200px;
+//     border-right: none;
+//     background: #002b5c;
+// }
+
+mat-sidenav {
+    background-color: #004a99;
+    width: 230px;
+    height: 100%;
+    box-shadow: 0 0 45px 0 rgba(0,0,0,0.6);
+    border-top-right-radius: 5px;
+}
+
+
+mat-sidenav-content {
+    height: 100vh;
+
+    .content{
+        height: calc(100vh - 98px);
+        margin: 16px;
+        margin-left: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #004a99;
+    }
+    .main {
+        width: 80%;
+        display: flex;
+
+        .first-chart{
+            width: 50%;
+        }
+
+        .second-chart {
+            width: 50%;
+        }
+
+    }
+}
+
+mat-toolbar {
+    justify-content: space-between;
+    mat-icon {
+        margin-left: 15px;
+        color: #608299;
+    }
+}
