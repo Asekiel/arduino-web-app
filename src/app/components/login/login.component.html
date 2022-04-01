@@ -25,42 +25,52 @@
     </form>
   </div> -->
 
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-8">
-        <div class="card-body">
-          <form [formGroup]="registerForm" (ngSubmit)="loginUser()" class="ml-3">
-            <mat-form-field>
-              <input matInput placeholder="Email address" formControlName="email" />
-              <mat-error *ngIf="email?.errors?.['required']">
-                Email address is required
-              </mat-error>
-              <mat-error *ngIf="email?.errors?.['email']">
-                Please enter a valid email address
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput type="password" placeholder="Password" formControlName="password" />
-              <mat-error *ngIf="password?.errors?.['required']">
-                Password is required
-              </mat-error>
-              <mat-error *ngIf="password?.errors?.['minLength']">
-                Password should be min 8 chars long
-              </mat-error>
-            </mat-form-field>
-            <div class="center margin-top">
-                <button type="submit" mat-raised-button color="primary" class="btn">Login</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <img
-          src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp"
-          alt="Trendy Pants and Shoes"
-          class="img-fluid rounded-start"
-        />
+<div class="card mb-3" style="max-width: 540px">
+  <div class="row g-0">
+    <div class="col-md-8">
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="loginUser()" class="ml-3">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Email address"
+              formControlName="email"
+            />
+            <mat-error *ngIf="email?.errors?.['required']">
+              Email address is required
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <mat-error *ngIf="password?.errors?.['required']">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="password?.errors?.['minLength']">
+              Password should be min 8 chars long
+            </mat-error>
+          </mat-form-field>
+          <div class="center margin-top">
+            <button type="submit" mat-raised-button color="primary" class="btn">
+              Login
+            </button>
+          </div>
+        </form>
       </div>
     </div>
+    <div class="col-md-4">
+      <img
+        src='../assets/rover.png'
+        alt="Rover"
+        class="img-fluid rounded-start"
+      />
+    </div>
   </div>
- 
+</div>

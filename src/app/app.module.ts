@@ -35,6 +35,7 @@ import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 import { TestingComponent } from './components/testing/testing.component';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 // const data = initializeApp(environment.firebase)
 // const database = getDatabase(data);
@@ -54,13 +55,14 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
     TestingComponent
   ],
   imports: [
-    BrowserModule,  
+    BrowserModule,
     HighchartsChartModule,
     AppRoutingModule,
     HotToastModule.forRoot(),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     MatTableModule,
     MatSidenavModule,
     MatPaginatorModule,
@@ -74,7 +76,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
     MdbCollapseModule,
     MdbDropdownModule,
     provideFirebaseApp(() => initializeApp(environment.firebase))
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 
-import { 
+import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
   canActivate,
@@ -27,7 +27,7 @@ const routes: Routes = [
   {
     path : '',
     pathMatch : 'full',
-    component : LandingComponent
+    component : LoginComponent
   },
   {
     path: 'login',
@@ -36,7 +36,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomepageComponent,
-    canActivate: [AngularFireAuthGuard], 
+    canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
      children : [
       {
@@ -49,16 +49,21 @@ const routes: Routes = [
                               .then(m=>m.BuildingSharedModule),
       },
       {
-        path : 'testing',
-        component : TestingComponent
-      }
+        path : '',
+        pathMatch : 'full',
+        redirectTo : 'school-map'
+      },
+      // {
+      //   path : 'testing',
+      //   component : TestingComponent
+      // }
     ]
   },
   // {
   //   path : 'sidebar',
   //   component: SidebarComponent
-  // } 
-  
+  // }
+
 ];
 
 @NgModule({
