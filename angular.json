@@ -28,6 +28,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
+              "src/conditions-sw-rover.js",
+              "src/manifest.json",
               "src/assets"
             ],
             "styles": [

@@ -13,29 +13,49 @@ const routes: Routes = [
     {
       path : '',
       component : SchoolMapComponent,
-      children : [
-          {
-            path : 'a-building',
-            component : ABuildingComponent
-          },
-          {
-            path : 'c1-building',
-            component : C1BuildingComponent
-          },
-          {
-            path : 'c2-building',
-            component : C2BuildingComponent
-          },
-          {
-            path : 'm-building',
-            component : MBuildingComponent
-          },
-          {
-            path : 'h-building',
-            component : HBuildingComponent
-          }
-      ]
-    }
+      // children : [
+      //     {
+      //       path : 'a-building',
+      //       component : ABuildingComponent
+      //     },
+      //     {
+      //       path : 'c1-building',
+      //       component : C1BuildingComponent
+      //     },
+      //     {
+      //       path : 'c2-building',
+      //       component : C2BuildingComponent
+      //     },
+      //     {
+      //       path : 'm-building',
+      //       component : MBuildingComponent
+      //     },
+      //     {
+      //       path : 'h-building',
+      //       component : HBuildingComponent
+      //     }
+      // ]
+    },
+    {
+      path : 'a-building',
+      component : ABuildingComponent
+    },
+    {
+      path : 'c1-building',
+      component : C1BuildingComponent
+    },
+    {
+      path : 'c2-building',
+      component : C2BuildingComponent
+    },
+    {
+      path : 'm-building',
+      component : MBuildingComponent
+    },
+    {
+      path : 'h-building',
+      component : HBuildingComponent
+    },
   ];
 
   @NgModule({

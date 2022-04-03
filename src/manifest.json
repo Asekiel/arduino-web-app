@@ -1,0 +1,6 @@
+{
+    "short_name" : "AngularFirebase",
+    "name" : "PUSH NOTIFICATIONS ROVER CONDITIONS",
+    "start_Url" : "/?utm_source=homescreen",
+    "gcm_sender_id" : "226962855215"
+}
