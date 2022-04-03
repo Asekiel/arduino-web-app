@@ -35,7 +35,8 @@ import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 import { TestingComponent } from './components/testing/testing.component';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';;
 
 // const data = initializeApp(environment.firebase)
 // const database = getDatabase(data);
@@ -63,6 +64,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    AngularFireMessagingModule,
     MatTableModule,
     MatSidenavModule,
     MatPaginatorModule,
