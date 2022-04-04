@@ -1,19 +1,26 @@
+<main class="mt-10 pt-10">
+  <h1>All Buildings</h1>
 
-<main class="mt-5 pt-5">
-    <div class="container-fluid first-chart">
-        <!-- <app-first-chart></app-first-chart> -->
+  <!-- <button (click)="isBack()"></button> -->
 
-
-    </div>
-    <hr class="dropdown-divider">
-    <div class="second-chart">
-        <!-- <app-second-chart></app-second-chart> -->
-    </div>
-    <div>
-      <ul>
-        <li *ngFor="let item of items | async">
-           {{ item | json }}
-        </li>
-      </ul>
-    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Room</th>
+        <th scope="col">Date</th>
+        <th scope="col">Dust Density</th>
+        <th scope="col">Battery Status</th>
+        <th scope="col">Water Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">309</th>
+        <td>April 5, 2022</td>
+        <td>0.37</td>
+        <td>good</td>
+        <td>Mid Level</td>
+      </tr>
+    </tbody>
+  </table>
 </main>
