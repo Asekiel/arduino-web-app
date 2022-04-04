@@ -31,11 +31,7 @@
       <div class="card-body">
         <form [formGroup]="registerForm" (ngSubmit)="loginUser()" class="ml-3">
           <mat-form-field>
-            <input
-              matInput
-              placeholder="Email address"
-              formControlName="email"
-            />
+            <input matInput placeholder="Email address" formControlName="email" />
             <mat-error *ngIf="email?.errors?.['required']">
               Email address is required
             </mat-error>
@@ -44,12 +40,7 @@
             </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input
-              matInput
-              type="password"
-              placeholder="Password"
-              formControlName="password"
-            />
+            <input matInput type="password" placeholder="Password" formControlName="password" />
             <mat-error *ngIf="password?.errors?.['required']">
               Password is required
             </mat-error>
@@ -65,12 +56,8 @@
         </form>
       </div>
     </div>
-    <div class="col-md-4">
-      <img
-        src='../assets/rover.png'
-        alt="Rover"
-        class="img-fluid rounded-start"
-      />
+    <div class="col-md-4 img">
+      <img src='../assets/rover.png' alt="Rover" class="img-fluid rounded-start" />
     </div>
   </div>
 </div>
