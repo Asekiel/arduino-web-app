@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "rover-19"
+  },
+  "targets": {
+    "rover-19": {
+      "hosting": {
+        "rover-app": [
+          "rover-19"
+        ]
+      }
+    }
   }
 }

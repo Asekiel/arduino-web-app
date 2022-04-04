@@ -36,7 +36,8 @@ import { TestingComponent } from './components/testing/testing.component';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
-import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';;
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';import { CoreModule } from './shared/core.module';
+;
 
 // const data = initializeApp(environment.firebase)
 // const database = getDatabase(data);
@@ -77,7 +78,8 @@ import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';;
     MdbCheckboxModule,
     MdbCollapseModule,
     MdbDropdownModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase))
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    CoreModule
 
   ],
   providers: [],

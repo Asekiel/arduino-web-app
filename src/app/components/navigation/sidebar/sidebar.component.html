@@ -124,10 +124,9 @@
         <mat-icon [inline]="true">all_inclusive</mat-icon>
       </div> -->
       <div class="user">
-          <img src="assets/user-rick.png" alt="">
-          <h4 class="name">Ricks Takers</h4>
+          <img src="{{ (users | async).photoURL }}" alt="">
+          <h4 class="name">{{ (users | async).displayName }} {{ (users | async).lastName }}</h4>
           <!-- <h4 class="email">rickstakers2122@gmail.com</h4> -->
-
       </div>
       <div class="menu">
         <div class="menu-head">

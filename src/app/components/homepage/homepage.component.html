@@ -13,6 +13,7 @@
         <mat-toolbar>
             <mat-icon (click)="sidenav.toggle()" style="cursor:pointer;">menu</mat-icon>
             <div class="search">
+               <div>{{ show | async | json}}</div>
                 <mat-icon>search</mat-icon>
                 <mat-icon (click)="logOutUser()"style="cursor:pointer;" >subdirectory_arrow_left</mat-icon>
                 <mat-icon >notifications_none</mat-icon>

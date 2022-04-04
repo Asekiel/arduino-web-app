@@ -3,7 +3,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
-
+import { RoverNotificationsService } from 'src/app/shared/rover-notifications.service';
+// import 'src/app/utils/rxjs.operators';
 declare const $: any;
 
 declare interface RouteInfo {
@@ -27,17 +28,29 @@ export const ROUTES: RouteInfo[] = [
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements AfterViewInit {
+export class HomepageComponent implements AfterViewInit, OnInit {
+
+  show;
 
   @ViewChild(MatSidenav)
   sidenav : MatSidenav;
   
-  constructor( private authService : AuthService, private router : ActivatedRoute, private observer : BreakpointObserver) { 
+  constructor( private authService : AuthService, private router : ActivatedRoute, private observer : BreakpointObserver, public rover : RoverNotificationsService) { 
     // this.menuItems = ROUTES.filter(menuItem => menuItem);
 
     // this.router.params.subscribe( params =>{
     //   console.log(params)
     // })
+  }
+
+  ngOnInit() {
+
+
+
+          this.rover.requestPermission();
+          this.rover.receiveMessage();
+          this.show = this.rover.currentMessage;
+
   }
 
   ngAfterViewInit(): void {
