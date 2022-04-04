@@ -3,26 +3,30 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { switchMap } from 'rxjs';
+import { of, switchMap } from 'rxjs';
 import { from, Observable } from 'rxjs';
+import { Users } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  users$ : Observable<any>;
+  user$: Observable<Users>;
 
 
-  constructor( private auth : AngularFireAuth,
+  constructor( private afAuth : AngularFireAuth,
                private afs : AngularFirestore,
                private router : Router,
                private toast : HotToastService) { 
 
-                // this.users$ = this.auth.authState.pipe(
-                //   switchMap(users => {
-                //     if(users) {
-                //       this.afs.doc<User>(`users/${}`)
+                // this.user$ = this.afAuth.authState.pipe(
+                //   switchMap(user => {
+                //     if(user) {
+                //       this.afs.doc<Users>(`users/${user.uid}`).valueChanges();
+                //     }  else {
+                //       // Logged out
+                //       return of(null);
                 //     }
                 //   })
                 // )
@@ -40,11 +44,11 @@ export class AuthService {
   //  }
 
   login(email: string, password: string): Observable<any> {
-    return from(this.auth.signInWithEmailAndPassword(email, password));
+    return from(this.afAuth.signInWithEmailAndPassword(email, password));
   }
 
   logOut() {
-    return this.auth.signOut().then(() => {
+    return this.afAuth.signOut().then(() => {
       this.router.navigate(['login'])
     })
   }

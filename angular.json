@@ -28,7 +28,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/conditions-sw-rover.js",
+              "src/firebase-messaging-sw.js",
               "src/manifest.json",
               "src/assets"
             ],
