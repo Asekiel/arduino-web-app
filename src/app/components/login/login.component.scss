@@ -23,3 +23,10 @@
 mat-form-field {
     margin: 10px 3rem;
 }
+
+.img {
+    img {
+        position: absolute;
+        top: 50%; left: 50%;
+    }
+}
