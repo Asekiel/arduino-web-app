@@ -14,16 +14,13 @@ import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { provideFirebaseApp } from '@angular/fire/app';
 
-
-
 @NgModule({
   declarations: [
     ABuildingComponent,
     C1BuildingComponent,
     C2BuildingComponent,
     HBuildingComponent,
-    MBuildingComponent
-    
+    MBuildingComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +28,14 @@ import { provideFirebaseApp } from '@angular/fire/app';
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase))
-  ]
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+  ],
+  exports: [
+    ABuildingComponent,
+    C1BuildingComponent,
+    C2BuildingComponent,
+    HBuildingComponent,
+    MBuildingComponent,
+  ],
 })
-export class BuildingSharedModule { }
+export class BuildingSharedModule {}
