@@ -27,10 +27,10 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/firebase-messaging-sw.js",
               "src/manifest.json",
-              "src/assets"
+              "src/firebase-messaging-sw.js"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -108,6 +108,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "rover-app:build:production",
+            "firebaseProject": "rover-19",
+            "firebaseHostingSite": "rover-19"
           }
         }
       }

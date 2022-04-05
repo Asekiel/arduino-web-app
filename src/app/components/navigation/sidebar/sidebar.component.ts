@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/auth.service';
 
 declare const $: any;
@@ -30,14 +32,17 @@ declare interface RouteInfo {
 
 export class SidebarComponent implements OnInit {
 
-
+  users : Observable<any>;
+  userData;
+  user
   menuItems: any[];
 
-  constructor( private router : Router, private auth : AuthService) { 
+  constructor( private router : Router, private auth : AuthService, private afs : AngularFirestore) { 
     // this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
 
   ngOnInit(): void {
+    this.users = this.afs.collection('users').doc('fIpr6RMWQdY7kLWKS6Ri').valueChanges();
   }
 
   isSchoolMap() {

@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore'
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { of, switchMap } from 'rxjs';
 import { from, Observable } from 'rxjs';
 import { Users } from '../models/user';
 
+import * as firebase from 'firebase/app';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  user$: Observable<Users>;
+  user: Observable<Users>;
 
 
   constructor( private afAuth : AngularFireAuth,
@@ -30,6 +33,15 @@ export class AuthService {
                 //     }
                 //   })
                 // )
+                this.user = this.afAuth.authState.pipe(
+                  switchMap(user => {
+                    if (user) {
+                      return this.afs.doc<Users>(`users/${user.uid}`).valueChanges()
+                    } else {
+                      return of(null)
+                    }
+                  })
+                )
                }
 
 
@@ -51,5 +63,27 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       this.router.navigate(['login'])
     })
+  }
+
+  private oAuthLogin(provider) {
+    return this.afAuth.signInWithPopup(provider)
+      .then((credential) => {
+        this.updateUserData(credential.user)
+      })
+  }
+
+  private updateUserData(user) {
+    // Sets user data to firestore on login
+
+    const userRef: AngularFirestoreDocument<Users> = this.afs.doc(`users/${user.uid}`);
+
+    const data: Users = {
+      uid: user.uid,
+      lastName : user.lastName,
+      displayName: user.displayName,
+      photoURL: user.photoURL
+    }
+
+    return userRef.set(data)
   }
 }
