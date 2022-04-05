@@ -13,6 +13,7 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { provideFirebaseApp } from '@angular/fire/app';
+import { Database } from 'firebase/database';
 
 @NgModule({
   declarations: [
@@ -37,5 +38,6 @@ import { provideFirebaseApp } from '@angular/fire/app';
     HBuildingComponent,
     MBuildingComponent,
   ],
+  providers: []
 })
 export class BuildingSharedModule {}

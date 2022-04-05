@@ -47,8 +47,8 @@ export class C1BuildingComponent implements AfterViewInit  {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   tables : Observable<any>;
-  constructor( private db: AngularFireDatabase, private database : Database) {
-    this.tables = db.object('tables').valueChanges();
+  constructor() {
+    // this.tables = db.object('tables').valueChanges();
     
     console.log(this.tables);
    }
