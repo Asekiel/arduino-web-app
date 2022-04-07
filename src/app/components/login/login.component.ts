@@ -4,7 +4,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/shared/auth.service';
-
+import * as $ from 'jquery';
+import * as anime from 'animejs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,6 +30,59 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    var current = null;
+    document.querySelector('#email').addEventListener('focus', function(e) {
+      if (current) current.pause();
+      current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+          value: 0,
+          duration: 700,
+          easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+          value: '240 1386',
+          duration: 700,
+          easing: 'easeOutQuart'
+        }
+      });
+    });
+    document.querySelector('#password').addEventListener('focus', function(e) {
+      if (current) current.pause();
+      current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+          value: -336,
+          duration: 700,
+          easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+          value: '240 1386',
+          duration: 700,
+          easing: 'easeOutQuart'
+        }
+      });
+    });
+    document.querySelector('#submit').addEventListener('focus', function(e) {
+      if (current) current.pause();
+      current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+          value: -730,
+          duration: 700,
+          easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+          value: '530 1386',
+          duration: 700,
+          easing: 'easeOutQuart'
+        }
+      });
+    });
+  }
+
+
   get email() {
     return this.registerForm.get('email');
   }
@@ -36,46 +90,22 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.registerForm.get('password');
   }
+loginUser(){
+    if (!this.registerForm.valid) {
+      return;
+    }
 
-  get error() {
-    return this.registerForm.controls;
-  }
-
-
-  loginUser() {
-    this.isSubmitted = true;
-    const { email, password } = this.registerForm.value; 
+    const { email, password } = this.registerForm.value;
     this.authService.login(email, password).pipe(
       this.toast.observe({
-        success: 'Successfully Entered the credentials',
-        loading: 'Logging in',
-        error : 'Incorrect Credentials'
+        success: 'Logged in successfully',
+        loading: 'Logging in...',
+        error: ({ message }) => `There was an error: ${message} `
       })
     ).subscribe(() => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/homepage']);
     });
   }
-
-  // get email() {
-  //   return this.loginForm.get('email');
-  // }
-
-  // get password() {
-  //   return this.loginForm.get('password');
-  // }
-
-  // loginUser() {
-  //   if(!this.loginForm.validator){
-  //     return;
-  //   }
-
-  //   const { email, password } = this.loginForm.value;
-  //   this.auth.loginWithUser(email, password).then(res => {
-  //     if(res.users.uid) {
-
-  //     }
-  //   })
-  // }
 
   // loginUser(){
   //   if (!this.loginForm.valid) {
@@ -93,4 +123,5 @@ export class LoginComponent implements OnInit {
   //     this.router.navigate(['/homepage']);
   //   });
   // }
+  
 }

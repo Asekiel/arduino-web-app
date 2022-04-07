@@ -13,10 +13,25 @@
         <mat-toolbar>
             <mat-icon (click)="sidenav.toggle()" style="cursor:pointer;">menu</mat-icon>
             <div class="search">
-               <div>{{ show | async | json}}</div>
-                <mat-icon>search</mat-icon>
-                <mat-icon (click)="logOutUser()"style="cursor:pointer;" >subdirectory_arrow_left</mat-icon>
-                <mat-icon >notifications_none</mat-icon>
+                <div class="account">
+                    <div class="user">
+                        <img src="./assets/user-rick.png" alt="">
+                    </div>
+                    <div class="dropdown" [matMenuTriggerFor]="menu">
+                        <mat-icon>expand_more</mat-icon>
+                    </div>
+                    <h4>{{ (user | async )?.displayName }}</h4>
+                </div>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>person</mat-icon>
+                      Edit Profile
+                    </button>
+                    <button  mat-menu-item style="cursor: pointer" (click)="authService.logOut()">
+                      <mat-icon>logout</mat-icon>
+                      SIGN OUT
+                    </button>
+                  </mat-menu>
             </div>
         </mat-toolbar>
         <div class="content mat-elevation-z4">

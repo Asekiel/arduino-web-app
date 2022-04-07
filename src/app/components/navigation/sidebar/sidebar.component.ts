@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/auth.service';
+import { RoverNotificationsService } from 'src/app/shared/rover-notifications.service';
 
 declare const $: any;
 
@@ -37,7 +40,11 @@ export class SidebarComponent implements OnInit {
   user
   menuItems: any[];
 
-  constructor( private router : Router, private auth : AuthService, private afs : AngularFirestore) { 
+  @ViewChild('MatSidenav')
+  sidenav : MatSidenav
+  
+
+  constructor( private router : Router, private afs : AngularFirestore,private authService : AuthService, private routes : ActivatedRoute, private observer : BreakpointObserver, public rover : RoverNotificationsService) { 
     // this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
 
@@ -45,12 +52,26 @@ export class SidebarComponent implements OnInit {
     this.users = this.afs.collection('users').doc('fIpr6RMWQdY7kLWKS6Ri').valueChanges();
   }
 
+  ngAfterViewInit(): void {
+    this.observer.observe(['(max-width: 800px)']).subscribe((res)=>{
+      if(res.matches){
+        this.sidenav.mode ='over';
+        this.sidenav.close()
+      }
+      else{
+        this.sidenav.mode = 'side';
+        this.sidenav.open()
+      }
+    })
+  }
+
+
   isSchoolMap() {
     this.router.navigate(['school-map'])
   }
 
   isLogOut() {
-    this.auth.logOut();
+    this.authService.logOut();
   }
 
 }

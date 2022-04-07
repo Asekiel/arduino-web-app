@@ -19,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -78,6 +79,7 @@ import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';impo
     MdbCheckboxModule,
     MdbCollapseModule,
     MdbDropdownModule,
+    MatMenuModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     CoreModule
 

@@ -16,7 +16,7 @@
 // }
 
 mat-sidenav {
-    background-color: #004a99;
+    background: rgba($color: #212529, $alpha: 1.0);
     width: 230px;
     height: 100%;
     box-shadow: 0 0 45px 0 rgba(0,0,0,0.6);
@@ -36,6 +36,23 @@ mat-sidenav-content {
         align-items: center;
         background-color: #004a99;
     }
+
+    .account {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .user img {
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+        }
+    }
+
+    // .user {
+    //     position: relative;
+    //     right: 100px;
+    // }
     .main {
         width: 80%;
         display: flex;
