@@ -100,10 +100,10 @@ loginUser(){
       this.toast.observe({
         success: 'Logged in successfully',
         loading: 'Logging in...',
-        error: ({ message }) => `There was an error: ${message} `
+        // error: ({ message }) => `There was an error: ${message} `
       })
     ).subscribe(() => {
-      this.router.navigate(['/homepage']);
+      this.router.navigate(['/home']);
     });
   }
 
