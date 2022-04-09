@@ -50,7 +50,7 @@ export class HomepageComponent implements AfterViewInit, OnInit {
   ngOnInit() {
 
     this.afAuth.authState.subscribe((user) => {
-      this.user = this.afs.doc<any>(`users/${user.email}`).valueChanges();
+      this.user = this.afs.doc<any>(`users/${user.uid}`).valueChanges();
     })
 
 
