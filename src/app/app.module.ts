@@ -37,8 +37,19 @@ import { TestingComponent } from './components/testing/testing.component';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
-import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';import { CoreModule } from './shared/core.module';
-;
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+import { CoreModule } from './shared/core.module';
+
+
+const firebase = {
+  apiKey: "AIzaSyCG5hENCtCmJH8QIK5LD9XcqLfWNqtIJ7Y",
+  authDomain: "iot-roverweb-app.firebaseapp.com",
+  projectId: "iot-roverweb-app",
+  storageBucket: "iot-roverweb-app.appspot.com",
+  messagingSenderId: "178681911817",
+  appId: "1:178681911817:web:445e224157b1a51eb276d8",
+  measurementId: "G-NGGEMVBRGN"
+}
 
 // const data = initializeApp(environment.firebase)
 // const database = getDatabase(data);
