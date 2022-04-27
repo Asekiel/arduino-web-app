@@ -9,7 +9,7 @@ import {
   canActivate,
   AngularFireAuthGuard
 } from '@angular/fire/compat/auth-guard'
-import { LandingComponent } from './components/landing/landing.component';
+// import { LandingComponent } from './components/landing/landing.component';
 import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SchoolMapComponent } from './components/building-map/school-map/school-map.component';
@@ -19,7 +19,7 @@ import { C2BuildingComponent } from './components/building-map/building/c2-build
 import { HBuildingComponent } from './components/building-map/building/h-building/h-building.component';
 import { MBuildingComponent } from './components/building-map/building/m-building/m-building.component';
 import { MatTableModule } from '@angular/material/table';
-import { TestingComponent } from './components/testing/testing.component';
+// import { TestingComponent } from './components/testing/testing.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);

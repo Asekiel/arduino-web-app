@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore'
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore'
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { of, switchMap } from 'rxjs';
@@ -17,11 +17,13 @@ export class AuthService {
 
   user: Observable<Users>;
 
+  userCollection : AngularFirestoreCollection<Users>
+
 
   constructor( private afAuth : AngularFireAuth,
                private afs : AngularFirestore,
                private router : Router,
-               private toast : HotToastService) { 
+               private toast : HotToastService ) { 
 
                 // this.user$ = this.afAuth.authState.pipe(
                 //   switchMap(user => {
@@ -42,22 +44,18 @@ export class AuthService {
                     }
                   })
                 )
-               }
+      }
 
 
-  //  loginWithUser(email: string, password: string) {
-  //    return this.auth.signInWithEmailAndPassword(email,password).then(() => {
-  //      localStorage.setItem('token', 'true');
-  //      this.router.navigate(['/page'])
-  //    }, err => {
-  //      alert(err.message);
-  //      this.router.navigate(['/login']);
-  //    })
-  //  }
+  // login(email: string, password: string): Observable<any> {
+  //   return from(this.afAuth.signInWithEmailAndPassword(email, password));
+  // }
 
-  login(email: string, password: string): Observable<any> {
-    return from(this.afAuth.signInWithEmailAndPassword(email, password));
+  login(email: any, password: any): Observable<any> {
+    return from(this.afAuth.signInWithEmailAndPassword(email, password))
   }
+
+
 
   logOut() {
     return this.afAuth.signOut().then(() => {

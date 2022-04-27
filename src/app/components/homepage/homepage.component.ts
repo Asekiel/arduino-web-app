@@ -36,10 +36,17 @@ export class HomepageComponent implements AfterViewInit, OnInit {
 
   show;
 
+  // title = 'I am rover';
+
   @ViewChild(MatSidenav)
   sidenav: MatSidenav;
   user: Observable<any>
-  constructor(public authService: AuthService, private router: ActivatedRoute, private observer: BreakpointObserver, public rover: RoverNotificationsService, private afAuth: AngularFireAuth, private afs : AngularFirestore) {
+  constructor(
+    public authService: AuthService,
+    private router: ActivatedRoute, private observer: 
+    BreakpointObserver, public rover: RoverNotificationsService, 
+    private afAuth: AngularFireAuth, private afs : AngularFirestore
+    ) {
     // this.menuItems = ROUTES.filter(menuItem => menuItem);
 
     // this.router.params.subscribe( params =>{
@@ -51,12 +58,15 @@ export class HomepageComponent implements AfterViewInit, OnInit {
 
     this.afAuth.authState.subscribe((user) => {
       this.user = this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+      console.log(user);
     })
 
+    
 
-    this.rover.requestPermission();
-    this.rover.receiveMessage();
-    this.show = this.rover.currentMessage;
+
+    // this.rover.requestPermission();
+    // this.rover.receiveMessage();
+    // this.show = this.rover.currentMessage;
 
   }
 

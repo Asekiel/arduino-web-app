@@ -23,7 +23,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { LandingComponent } from './components/landing/landing.component';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { SchoolMapComponent } from './components/building-map/school-map/school-map.component';
@@ -33,13 +32,12 @@ import { SecondChartComponent } from './components/widgets/second-chart/second-c
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse'
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
-import { TestingComponent } from './components/testing/testing.component';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { CoreModule } from './shared/core.module';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 const firebase = {
   apiKey: "AIzaSyCG5hENCtCmJH8QIK5LD9XcqLfWNqtIJ7Y",
@@ -51,6 +49,17 @@ const firebase = {
   measurementId: "G-NGGEMVBRGN"
 }
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAyogYx29Sfp5QEM6MKuLhrOV-Aq0i88uM",
+  authDomain: "rover-19.firebaseapp.com",
+  databaseURL: "https://rover-19-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "rover-19",
+  storageBucket: "rover-19.appspot.com",
+  messagingSenderId: "226962855215",
+  appId: "1:226962855215:web:f8a654b4b0ede9f12ffdda",
+  measurementId: "G-NH8Z9LDFZD"
+};
+
 // const data = initializeApp(environment.firebase)
 // const database = getDatabase(data);
 
@@ -59,14 +68,13 @@ const firebase = {
     AppComponent,
     LoginComponent,
     HomepageComponent,
-    LandingComponent,
+    // LandingComponent,
     SidebarComponent,
     NavbarComponent,
     SchoolMapComponent,
     DashboardComponent,
     FirstChartComponent,
     SecondChartComponent,
-    TestingComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +82,6 @@ const firebase = {
     AppRoutingModule,
     HotToastModule.forRoot(),
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireMessagingModule,
@@ -87,19 +94,20 @@ const firebase = {
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
     MdbCheckboxModule,
     MdbCollapseModule,
     MdbDropdownModule,
     MatMenuModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    CoreModule
-
+    CoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(firebaseConfig))
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-function provideFirestore(arg0: () => any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
-  throw new Error('Function not implemented.');
-}
+// function provideFirestore(arg0: () => any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+//   throw new Error('Function not implemented.');
+// }
 

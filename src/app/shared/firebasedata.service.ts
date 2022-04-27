@@ -7,9 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class FirebasedataService {
   items: Observable<any[]>;
+
+  item : Observable<any>
   constructor(private db: AngularFireDatabase) {
     const listRef = db.list('items');
     const shirtsRef = db.list<any>('shirts');
     this.items = db.list('items').valueChanges();
   }
+
+
+  getObjects() {
+    this.item = this.db.object('nodeMCU').valueChanges();
+  }
+
+  getAirQuality() {
+    return this.db.database.ref('nodeMCU').child('IAQ');
+  }
+
+
+
 }

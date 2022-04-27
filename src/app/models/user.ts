@@ -4,7 +4,5 @@ export interface Users {
     lastName: string;
     photoURL? : string;
     role? : string;    
-
-
-    fcmTokens?: { [token: string]: true };
 }
+// fcmTokens?: { [token: string]: true };

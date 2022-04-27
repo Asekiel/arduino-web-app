@@ -25,6 +25,7 @@
     "@ngneat/overview": "^3.0.0",
     "animejs": "^3.2.1",
     "firebase": "^9.6.7",
+    "gauge": "^4.0.4",
     "highcharts": "^10.0.0",
     "highcharts-angular": "^3.0.0",
     "jquery": "^3.6.0",

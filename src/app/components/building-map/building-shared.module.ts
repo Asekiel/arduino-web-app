@@ -14,6 +14,7 @@ import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { Database } from 'firebase/database';
+import { RoverDetailsComponent } from '../dashboard/rover-details/rover-details.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { Database } from 'firebase/database';
     C2BuildingComponent,
     HBuildingComponent,
     MBuildingComponent,
+    // RoverDetailsComponent
   ],
   imports: [
     CommonModule,
