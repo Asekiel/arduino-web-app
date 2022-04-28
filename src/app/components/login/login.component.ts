@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/shared/auth.service';
 import * as $ from 'jquery';
-import * as anime from 'animejs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -132,5 +131,5 @@ loginUser(){
   //     this.router.navigate(['/homepage']);
   //   });
   // }
-  
+
 }
