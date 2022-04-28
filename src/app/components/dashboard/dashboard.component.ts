@@ -3,7 +3,10 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
 
 import firebase from 'firebase/compat/app';
 import { FirebasedataService } from 'src/app/shared/firebasedata.service';
@@ -36,13 +39,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 export interface Rover {
-  room : string;
-  disinfectionTime : Date;
-  date : firebase.firestore.FieldValue;
-  airQuality : string;
-  batteryStatus : string;
+  room: string;
+  disinfectionTime: Date;
+  date: firebase.firestore.FieldValue;
+  airQuality: string;
+  batteryStatus: string;
 }
-
 
 @Component({
   selector: 'app-dashboard',
@@ -64,15 +66,16 @@ export class DashboardComponent implements OnInit {
 
   data: any = [];
 
-  roverCollection : AngularFirestoreCollection<Rover>
-  rover : Observable<Rover[]>;
+  roverCollection: AngularFirestoreCollection<Rover>;
+  rover: Observable<Rover[]>;
 
-  chartOptions : {};
+  chartOptions: {};
   constructor(
-    private db: AngularFireDatabase, 
-    private afs : AngularFirestore,
-    public fbService : FirebasedataService,
-    private dialog : MatDialog) {
+    private db: AngularFireDatabase,
+    private afs: AngularFirestore,
+    public fbService: FirebasedataService,
+    private dialog: MatDialog
+  ) {
     this.items = this.db.list('items').valueChanges();
 
     // this.roverCollection = this.afs.collection('rover');
@@ -86,11 +89,11 @@ export class DashboardComponent implements OnInit {
 
   goToDetails() {
     this.dialog.open(RoverDetailsComponent, {
-      width : '50rem'
-    })
+      width: '50rem',
+    });
   }
 
-
-
-
+  onChange() {
+    return this.fbService.onChange();
+  }
 }
