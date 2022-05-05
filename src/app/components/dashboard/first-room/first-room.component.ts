@@ -11,15 +11,13 @@ import {
 import firebase from 'firebase/compat/app';
 import { FirebasedataService } from 'src/app/shared/firebasedata.service';
 import { MatDialog } from '@angular/material/dialog';
-import { RoverDetailsComponent } from './rover-details/rover-details.component';
-import { RoomsComponent } from './rover-details/rooms/rooms.component';
 import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
   position: string;
   weight: string;
-  symbol: string;
+  symbol: number;
   status: string;
 }
 
@@ -28,7 +26,35 @@ const ELEMENT_DATA: PeriodicElement[] = [
     position: 'Room 301',
     name: '10:30 am',
     weight: 'January 20, 2022',
-    symbol: '34%',
+    symbol: 13,
+    status: 'good',
+  },
+  {
+    position: 'Room 301',
+    name: '10:30 am',
+    weight: 'January 20, 2022',
+    symbol: 12,
+    status: 'good',
+  },
+  {
+    position: 'Room 301',
+    name: '10:30 am',
+    weight: 'January 20, 2022',
+    symbol: 14,
+    status: 'good',
+  },
+  {
+    position: 'Room 301',
+    name: '10:30 am',
+    weight: 'January 20, 2022',
+    symbol: 14,
+    status: 'good',
+  },
+  {
+    position: 'Room 301',
+    name: '10:30 am',
+    weight: 'January 20, 2022',
+    symbol: 14,
     status: 'good',
   }
 ];
@@ -42,11 +68,11 @@ export interface Rover {
 }
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-first-room',
+  templateUrl: './first-room.component.html',
+  styleUrls: ['./first-room.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class FirstRoomComponent implements OnInit {
   items: Observable<any[]>;
   displayedColumns: string[] = [
     'position',
@@ -64,12 +90,14 @@ export class DashboardComponent implements OnInit {
   roverCollection: AngularFirestoreCollection<Rover>;
   rover: Observable<Rover[]>;
 
-  airQuality: any;
-  status: any;
-
-  title = "Rover Application";
-
+  records : Observable<any>;
+  rec
   chartOptions: {};
+
+  waterLevel;
+  iaq;
+  ts;
+
   constructor(
     private db: AngularFireDatabase,
     private afs: AngularFirestore,
@@ -78,54 +106,32 @@ export class DashboardComponent implements OnInit {
     private router : Router
   ) {
     this.items = this.db.list('items').valueChanges();
-
-    // this.roverCollection = this.afs.collection('rover');
-    // this.rover = this.roverCollection.valueChanges();
   }
 
   ngOnInit() {
-    this.fbService.getObjects(); // Contains all the meta data from NODEMCU
-    this.fbService.item
+    // this.fbService.getObjects();
+    // this.fbService.item;
+  
 
-    this.fbService.getAirQuality().on('value', (snapshot) => {
-      console.log(snapshot.val());
-      this.embed(snapshot.val());
-    })
-
-    console.log(this.onChange());
+    // WORKING FOR NOW
+    this.records = this.db.object('records').valueChanges();
     
-   if(this.airQuality >= 0 && this.airQuality <= 12) {
-      this.status = 'Acceptable/Good';
-    } else if(this.fbService.iaq >= 13 && this.airQuality <= 35.4) {
-      this.status = 'Moderate';
-    } else if(this.airQuality >= 35.5 && this.airQuality <= 150.4) {
-      this.status = 'Unhealthy for Sensitive Group';
-    } else if(this.airQuality >= 150.5 && this.airQuality <= 250.4) {
-      this.status = 'Very Unhealthy';
-    } else {
-      this.status = 'Hazardous';
-    }
   }
 
-  goToDetails() {
-    this.dialog.open(RoverDetailsComponent, {
-      width: '50rem',
+  getRecordsObjects() {
+    const waterLevel = this.waterLevel;
+    const ts = this.ts;
+    const airQuality = this.iaq;
+
+    this.rec = this.db.object('records').set({
+      waterLevel : this.waterLevel,
+      ts : this.ts,
+      airQuality : this.iaq,
     });
   }
 
-  onChange() {
-    return this.fbService.onChange();
-  }
 
-  embed(air : any){
-    this.airQuality = air;
-  }
 
-  toSeeRooms() {
-    this.dialog.open(RoomsComponent, {
-      width: '50rem'
-    })
-  }
 
 
 }

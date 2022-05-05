@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecondChartComponent } from './second-chart.component';
+import { SecondRoomComponent } from './second-room.component';
 
-describe('SecondChartComponent', () => {
-  let component: SecondChartComponent;
-  let fixture: ComponentFixture<SecondChartComponent>;
+describe('SecondRoomComponent', () => {
+  let component: SecondRoomComponent;
+  let fixture: ComponentFixture<SecondRoomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecondChartComponent ]
+      declarations: [ SecondRoomComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SecondChartComponent);
+    fixture = TestBed.createComponent(SecondRoomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

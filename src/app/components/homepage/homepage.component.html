@@ -1,9 +1,4 @@
-<!--<app-navbar></app-navbar>
-<app-school-map></app-school-map>
- <app-sidebar></app-sidebar> 
-<app-sidebar></app-sidebar>-->
-<!-- <app-navbar></app-navbar>
-        <app-sidebar></app-sidebar> -->
+<!-- 
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode='side' opened>
@@ -21,7 +16,6 @@
                         <mat-icon>expand_more</mat-icon>
                     </div>
                     <h4>{{ (user | async )?.displayName }}</h4>
-                    <!-- {{ (user | async )?.displayName }} -->
                 </div>
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item>
@@ -42,4 +36,79 @@
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container> 
+ -->
 
+
+
+<section class="home common" id="home">
+
+  <div class=" header">
+    <div class="logo">
+      <div class="logo-img">
+        <img class="rover" src="assets/rover.png" alt="">
+      </div>
+      <div class="logo-text">
+        <h3>ROVER 19</h3>
+      </div>
+    </div>
+    <nav class="navbar-brand">
+      <ul>
+        <li><a routerLink="home/school-map">School Map</a></li>
+        <li><a disabled>About</a></li>
+        <li><a [matMenuTriggerFor]="menu">Account</a></li>
+      </ul>
+    </nav>
+
+    <mat-menu #menu="matMenu">
+      <!-- <div class="user-account">
+        <div class="user-pics">
+          <img src="assets/user-rick.png" alt="">
+        </div>
+        <div class="text-name">
+          <h4>RICKS </h4>
+        </div>
+      </div>
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        Profile
+      </button> -->
+      <button  mat-menu-item style="cursor: pointer" (click)="authService.logOut()">
+        <mat-icon>logout</mat-icon>
+        SIGN OUT
+      </button>
+    </mat-menu>
+
+
+  </div>
+  <header>
+    <div class="container home-inner">
+      <!-- <div class="text">
+      <h2>We are Scientist</h2>
+      <h1>Albert Einstein</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae eaque
+        quam cumque, asperiores, nemo omnis eum sunt illo tenetur debitis ipsa
+        quidem accusamus, suscipit harum optio ducimus! Asperiores, aliquam
+        unde!
+      </p>
+    </div> -->
+
+      <main>
+        <img src="assets/mini-map.jpg" alt="map" usemap="#map">
+        <map name="map">
+          <area shape="rect" coords="191,248,115,199" alt="c1" [routerLink]="['/dashboard']">
+          <area shape="rect" coords="482,126,374,81" alt="h" routerLink="/dashboard">
+          <area shape="rect" coords="332,263,250,217" alt="c2" [routerLink]="['/dashboard']">
+          <area shape="rect" coords="687,213,605,167" alt="m" routerLink="dashboard">
+          <area shape="rect" coords="234,144,152,98" alt="a" [routerLink]="['/dashboard']">
+        </map>
+      </main>
+
+      <div class="picture-left">
+        <div class="picture-left-image">
+        </div>
+      </div>
+    </div>
+  </header>
+
+</section>

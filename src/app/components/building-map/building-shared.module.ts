@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { Database } from 'firebase/database';
 import { RoverDetailsComponent } from '../dashboard/rover-details/rover-details.component';
+// import { RoomsComponent } from '../dashboard/rooms/rooms.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RoverDetailsComponent } from '../dashboard/rover-details/rover-details.
     C2BuildingComponent,
     HBuildingComponent,
     MBuildingComponent,
+    // RoomsComponent
     // RoverDetailsComponent
   ],
   imports: [
@@ -39,6 +41,7 @@ import { RoverDetailsComponent } from '../dashboard/rover-details/rover-details.
     C2BuildingComponent,
     HBuildingComponent,
     MBuildingComponent,
+    // RoomsComponent
   ],
   providers: []
 })

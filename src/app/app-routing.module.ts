@@ -19,6 +19,8 @@ import { C2BuildingComponent } from './components/building-map/building/c2-build
 import { HBuildingComponent } from './components/building-map/building/h-building/h-building.component';
 import { MBuildingComponent } from './components/building-map/building/m-building/m-building.component';
 import { MatTableModule } from '@angular/material/table';
+import { FirstRoomComponent } from './components/dashboard/first-room/first-room.component';
+import { SecondRoomComponent } from './components/dashboard/second-room/second-room.component';
 // import { TestingComponent } from './components/testing/testing.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -59,10 +61,18 @@ const routes: Routes = [
       // }
     ]
   },
-  // {
-  //   path : 'sidebar',
-  //   component: SidebarComponent
-  // }
+  {
+    path : 'dashboard',
+    component : DashboardComponent
+  },
+  {
+    path : 'first-room',
+    component: FirstRoomComponent
+  },
+  {
+    path : 'second-room',
+    component: SecondRoomComponent
+  }
 
 ];
 

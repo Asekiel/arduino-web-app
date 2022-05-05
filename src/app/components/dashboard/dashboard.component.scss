@@ -1,312 +1,122 @@
-// main {
-//   width: 100%;
-//   display: flex;
-//   margin-bottom: 40px;
+.container-fluid {
+  background-color: #007AA8;
+}
 
-//   .first-chart {
-//     width: 50%;
-//   }
+.design-bar {
+  position: absolute;
+}
 
-//   .second-chart {
-//     width: 50%;
-//   }
-//   .container-fluid {
-//     height: 100vh;
-//     position: relative;
-//     top: 180px;
+.design-bar::after,
+.design-bar::before {
+  content: '';
+  width: 50px;
+  height: 350px;
+  background-color: darkslateblue;
+  z-index: 99999;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-//     .custom {
-//       width: 50%;
-//       text-align: center;
-//     }
-//     .formats {
-//       width: 100%;
-//       padding: 10px;
-//     }
-//     .btn {
-//       padding: 10px;
-//       margin-top: 5px;
-//       background-color: lightgreen;
-//       width: 60%;
-//     }
-//     .btn:hover {
-//       cursor: pointer;
-//     }
+.design-bar::after {
+  position: absolute;
+  left: -20px;
+  top: -85px;
+  transform: rotate(27deg);
+}
 
-//     table {
-//       width: 100%;
-//     }
-//   }
+.design-bar::before {
+  position: absolute;
+  left: 30px;
+  top: -40px;
+  transform: rotate(27deg);
+}
 
-//   button {
-//     border-radius: 10px;
-//     width: 85px;
-//     border: none;
-//     font-size: 18px;
-//     transition: 0.5s linear;
-//   }
-
-//   button:hover {
-//     background: #007aa8;
-//   }
+// .design-sec {
+//   position: absolute;
 // }
 
-                                                  // main {
-                                                  //   width: 100%;
-                                                  //   display: flex;
-                                                  //   margin-bottom: 40px;
-                                                  // }
+// .design-sec::after,
+// .design-sec::before {
+//   content: '';
+//   width: 50px;
+//   height: 350px;
+//   background-color: darkslateblue;
+//   z-index: 99999;
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+// }
 
-                                                //   .container-fluid {
-                                                //     display: flex;
-                                                //     justify-content: center;
-                                                //     align-items: center;
-                                                //     position: relative;
-                                                //     left: -100px
-                                                //   }
+// .design-sec::after {
+//   position: absolute;
+//   top
+//   right: -40px;
+//   bottom: -85px;
+//   transform: rotate(27deg);
+// }
 
-                                                //   .demo{ font-family: 'Noto Sans', sans-serif; }
-                                                //   .panel{
-                                                //       background: linear-gradient(to right, #2980b9, #2c3e50);
-                                                //       padding: 0;
-                                                //       border-radius: 10px;
-                                                //       border: none;
-                                                //       box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05);
-                                                //   }
-                                                //   .panel .panel-heading{
-                                                //       padding: 20px 15px;
-                                                //       border-radius: 10px 10px 0 0;
-                                                //       margin: 0;
-                                                //   }
-                                                //   .panel .panel-heading .title{
-                                                //       color: #fff;
-                                                //       font-size: 28px;
-                                                //       font-weight: 500;
-                                                //       text-transform: capitalize;
-                                                //       line-height: 40px;
-                                                //       margin: 0;
-                                                //   }
-                                                //   .panel .panel-heading .btn{
-                                                //       color: rgba(255,255,255,0.5);
-                                                //       background: transparent;
-                                                //       font-size: 16px;
-                                                //       text-transform: capitalize;
-                                                //       border: 2px solid #fff;
-                                                //       border-radius: 50px;
-                                                //       transition: all 0.3s ease 0s;
-                                                //   }
-                                                //   .panel .panel-heading .btn:hover{
-                                                //       color: #fff;
-                                                //       text-shadow: 3px 3px rgba(255,255,255,0.2);
-                                                //   }
-                                                //   .panel .panel-heading .form-control{
-                                                //       color: #fff;
-                                                //       background-color: transparent;
-                                                //       width: 35%;
-                                                //       height: 40px;
-                                                //       border: 2px solid #fff;
-                                                //       border-radius: 20px;
-                                                //       display: inline-block;
-                                                //       transition: all 0.3s ease 0s;
-                                                //   }
-                                                //   .panel .panel-heading .form-control:focus{
-                                                //       background-color: rgba(255,255,255,0.2);
-                                                //       box-shadow: none;
-                                                //       outline: none;
-                                                //   }
-                                                //   .panel .panel-heading .form-control::placeholder{
-                                                //       color: rgba(255,255,255,0.5);
-                                                //       font-size: 15px;
-                                                //       font-weight: 500;
-                                                //   }
-                                                //   .panel .panel-body{ padding: 0; }
-                                                //   .panel .panel-body .table thead tr th{
-                                                //       color: #fff;
-                                                //       background-color: rgba(255, 255, 255, 0.2);
-                                                //       font-size: 16px;
-                                                //       font-weight: 500;
-                                                //       text-transform: uppercase;
-                                                //       padding: 0 59.4px;
-                                                //       border: none;
-                                                //   }
-                                                //   .panel .panel-body .table tbody tr td{
-                                                //       color: #fff;
-                                                //       font-size: 15px;
-                                                //       padding: 3px 12px;
-                                                //       vertical-align: middle;
-                                                //       border: none;
-                                                //   }
-                                                //   .panel .panel-body .table tbody tr:nth-child(even){ background-color: rgba(255,255,255,0.05); }
-                                                //   .panel .panel-body .table tbody .action-list{
-                                                //       padding: 0;
-                                                //       margin: 0;
-                                                //       list-style: none;
-                                                //   }
-                                                //   .panel .panel-body .table tbody .action-list li{
-                                                //       display: inline-block;
-                                                //       margin: 0 5px;
-                                                //   }
-                                                //   .panel .panel-body .table tbody .action-list li a{
-                                                //       color: #fff;
-                                                //       font-size: 15px;
-                                                //       position: relative;
-                                                //       z-index: 1;
-                                                //       transition: all 0.3s ease 0s;
-                                                //   }
-                                                //   .panel .panel-body .table tbody .action-list li a:hover{ text-shadow: 3px 3px 0 rgba(255,255,255,0.3); }
-                                                //   .panel .panel-body .table tbody .action-list li a:before,
-                                                //   .panel .panel-body .table tbody .action-list li a:after{
-                                                //       content: attr(data-tip);
-                                                //       color: #fff;
-                                                //       background-color: #111;
-                                                //       font-size: 12px;
-                                                //       padding: 5px 7px;
-                                                //       border-radius: 4px;
-                                                //       text-transform: capitalize;
-                                                //       display: none;
-                                                //       transform: translateX(-50%);
-                                                //       position: absolute;
-                                                //       left: 50%;
-                                                //       top: -32px;
-                                                //       transition: all 0.3s ease 0s;
-                                                //   }
-                                                //   .panel .panel-body .table tbody .action-list li a:after{
-                                                //       content: '';
-                                                //       height: 15px;
-                                                //       width: 15px;
-                                                //       padding: 0;
-                                                //       border-radius: 0;
-                                                //       transform: translateX(-50%) rotate(45deg);
-                                                //       top: -18px;
-                                                //       z-index: -1;
-                                                //   }
-                                                //   .panel .panel-body .table tbody .action-list li a:hover:before,
-                                                //   .panel .panel-body .table tbody .action-list li a:hover:after{
-                                                //       display: block;
-                                                //   }
-                                                //   .panel .panel-footer{
-                                                //       color: #fff;
-                                                //       background-color: transparent;
-                                                //       padding: 15px;
-                                                //       border: none;
-                                                //   }
-                                                //   .panel .panel-footer .col{ line-height: 35px; }
-                                                //   .pagination{ margin: 0; }
-                                                //   .pagination li a{
-                                                //       color: #fff;
-                                                //       background-color: transparent;
-                                                //       border: 2px solid transparent;
-                                                //       font-size: 18px;
-                                                //       font-weight: 500;
-                                                //       text-align: center;
-                                                //       line-height: 31px;
-                                                //       width: 35px;
-                                                //       height: 35px;
-                                                //       padding: 0;
-                                                //       margin: 0 3px;
-                                                //       border-radius: 50px;
-                                                //       transition: all 0.3s ease 0s;
-                                                //   }
-                                                //   .pagination li a:hover{
-                                                //       color: #fff;
-                                                //       background-color: transparent;
-                                                //       border-color: rgba(255,255,255,0.2);
-                                                //   }
-                                                //   .pagination li a:focus,
-                                                //   .pagination li.active a,
-                                                //   .pagination li.active a:hover{
-                                                //       color: #fff;
-                                                //       background-color: transparent;
-                                                //       border-color: #fff;
-                                                //   }
-                                                //   .pagination li:first-child a,
-                                                //   .pagination li:last-child a{
-                                                //       border-radius: 50%;
-                                                //   }
-                                                //   @media only screen and (max-width:767px){
-                                                //       .panel .panel-heading .title{
-                                                //           text-align: center;
-                                                //           margin: 0 0 10px;
-                                                //       }
-                                                //       .panel .panel-heading .btn_group{ text-align: center; }
-                                                //   }
+// .design-sec::before {
+//   position: absolute;
+//   right: 30px;
+//   bottom: -40px;
+//   transform: rotate(27deg);
+// }
 
 
-                                                //   .container-fluid {
-                                                //     height: 100vh;
-                                                //     position: relative;
-                                                //     top: 180px;
-                                                
-                                                //     .custom {
-                                                //         width: 50%;
-                                                //         text-align: center;
-                                                //       }
-                                                //       .formats{
-                                                //         width: 100%;
-                                                //         padding: 10px;
-                                                //       }
-                                                //       .btn{
-                                                //         padding:10px;
-                                                //         margin-top: 5px;
-                                                //         background-color: lightgreen;
-                                                //         width: 60%; 
-                                                //       }
-                                                //       .btn:hover{
-                                                //         cursor: pointer;
-                                                //       }
-                                                
-                                                //     table {
-                                                //         width: 100%;
-                                                //     }
-                                                // }
-                                                
-                                                
-                                                // button {
-                                                //   border-radius: 10px;
-                                                //   width: 85px;
-                                                //   border: none;
-                                                //   font-size: 18px;
-                                                //   transition: .5s linear;
-                                                // }
-                                                
-                                                // button:hover {
-                                                //   background: #007AA8;
-                                                // }
+.container-fluid {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-                                                .container-fluid {
-                                                    height: 100%;
-                                                    width: 100%;
-                                                    position: absolute;
-                                                    top: 50%;
-                                                    left: 50%;
-                                                    transform: translate(-50%, -50%);
-                                                    display: flex;
-                                                    flex-direction: column;
-                                                    justify-content: center;
-                                                    align-items: center;
-                                                
-                                                    table {
-                                                        width: 900px;
-                                                    }
-                                                }
-                                                
-                                                button {
-                                                    border-radius: 10px;
-                                                    width: 85px;
-                                                    border: none;
-                                                    font-size: 18px;
-                                                    transition: .5s linear;
-                                                  }
-                                                  
-                                                  button:hover {
-                                                    background: #007AA8;
-                                                  }
+  table {
+    width: 900px;
+  }
+}
 
-                                                  .hover {
-                                                    transition: 400ms all ease;
-                                                  }
+button {
+  border-radius: 10px;
+  width: 85px;
+  border: none;
+  font-size: 18px;
+  transition: .5s linear;
+}
 
-                                                  .hover:hover {
-                                                    background-color: #007AA8;
-                                                    color: #f8f8f8;
-                                                  }
+button:hover {
+  background: #007AA8;
+}
+
+.hover {
+  transition: 400ms all ease;
+}
+
+.hover:hover {
+  background-color: #007AA8;
+  color: #f8f8f8;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1, h2, h3 {
+  color: #f8f8f8;
+}
+
+
+.btn {
+  font-size: larger;
+  color: #131313;
+  position: relative;
+  left: -30%;
+  background-color: aliceblue;
+  margin: 12px;
+}

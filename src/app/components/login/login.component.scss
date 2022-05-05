@@ -102,7 +102,7 @@ body {
   margin: 40px;
 }
 .right {
-  background: #474A59;
+  background: #315399;
   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
   color: #F1F1F2;
   position: relative;
@@ -161,4 +161,11 @@ input::-moz-focus-inner {
 }
 #submit:active {
   color: #d0d0d2;
+}
+
+.btn {
+  background-color: #00FA9A;
+  font-size: 12px;
+  font-weight: 800;
+  color: #181818;
 }

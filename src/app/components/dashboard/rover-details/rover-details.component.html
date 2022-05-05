@@ -12,13 +12,31 @@
 </div> -->
 
 <div class="gauge">
-    <h1>Air Quality: {{airQuality}} ug/m3</h1>
+    <div class="data-coming">
+        <h1>RECENT DATA </h1>
+    </div>
+    <h2>Air Quality: {{airQuality}} ug/m3</h2>
     <canvas #air id="canvas-preview"></canvas>
-    <p>Status: Hazardous</p>
+    <div>
+        <p>Status: {{status}}</p>
+    </div>
+    <hr>
+
+    <div class="water">
+        <div class="title">
+            WATER LEVEL
+        </div>
+        <h1>{{(waterLevel)}}</h1>
+    </div>
 </div>
 
-<div class="container">
-    <h1></h1>
+
+
+                <!-- <td>{{(fbService.item | async )?.IAQ}}</td>
+            </tr>
+
+        </tbody>
+    </table>
 </div>
 
   <!-- <div class="wrapper">

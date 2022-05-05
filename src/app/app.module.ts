@@ -27,8 +27,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { SchoolMapComponent } from './components/building-map/school-map/school-map.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { FirstChartComponent } from './components/widgets/first-chart/first-chart.component';
-import { SecondChartComponent } from './components/widgets/second-chart/second-chart.component';
+
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse'
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
@@ -38,30 +37,11 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { CoreModule } from './shared/core.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import { RoverDetailsComponent } from './components/dashboard/rover-details/rover-details.component';
+import { FirstRoomComponent } from './components/dashboard/first-room/first-room.component';
+import { SecondRoomComponent } from './components/dashboard/second-room/second-room.component';
+import { RoomsComponent } from './components/dashboard/rover-details/rooms/rooms.component';
 
-const firebase = {
-  apiKey: "AIzaSyCG5hENCtCmJH8QIK5LD9XcqLfWNqtIJ7Y",
-  authDomain: "iot-roverweb-app.firebaseapp.com",
-  projectId: "iot-roverweb-app",
-  storageBucket: "iot-roverweb-app.appspot.com",
-  messagingSenderId: "178681911817",
-  appId: "1:178681911817:web:445e224157b1a51eb276d8",
-  measurementId: "G-NGGEMVBRGN"
-}
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAyogYx29Sfp5QEM6MKuLhrOV-Aq0i88uM",
-  authDomain: "rover-19.firebaseapp.com",
-  databaseURL: "https://rover-19-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "rover-19",
-  storageBucket: "rover-19.appspot.com",
-  messagingSenderId: "226962855215",
-  appId: "1:226962855215:web:f8a654b4b0ede9f12ffdda",
-  measurementId: "G-NH8Z9LDFZD"
-};
-
-// const data = initializeApp(environment.firebase)
-// const database = getDatabase(data);
 
 @NgModule({
   declarations: [
@@ -73,8 +53,10 @@ const firebaseConfig = {
     NavbarComponent,
     SchoolMapComponent,
     DashboardComponent,
-    FirstChartComponent,
-    SecondChartComponent,
+    RoverDetailsComponent,
+    FirstRoomComponent,
+    SecondRoomComponent,
+    RoomsComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,8 +82,9 @@ const firebaseConfig = {
     MdbDropdownModule,
     MatMenuModule,
     CoreModule,
+    // DashCoreModule,
     AngularFireModule.initializeApp(environment.firebase),
-    provideFirebaseApp(() => initializeApp(firebaseConfig))
+    provideFirebaseApp(() => initializeApp(environment.firebase))
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Users } from 'src/app/models/user';
 import { AuthService } from 'src/app/shared/auth.service';
 import { RoverNotificationsService } from 'src/app/shared/rover-notifications.service';
 // import 'src/app/utils/rxjs.operators';
