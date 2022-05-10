@@ -29,34 +29,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
     symbol: 13,
     status: 'good',
   },
-  {
-    position: 'Room 301',
-    name: '10:30 am',
-    weight: 'January 20, 2022',
-    symbol: 12,
-    status: 'good',
-  },
-  {
-    position: 'Room 301',
-    name: '10:30 am',
-    weight: 'January 20, 2022',
-    symbol: 14,
-    status: 'good',
-  },
-  {
-    position: 'Room 301',
-    name: '10:30 am',
-    weight: 'January 20, 2022',
-    symbol: 14,
-    status: 'good',
-  },
-  {
-    position: 'Room 301',
-    name: '10:30 am',
-    weight: 'January 20, 2022',
-    symbol: 14,
-    status: 'good',
-  }
 ];
 
 export interface Rover {
@@ -85,25 +57,14 @@ export class FirstRoomComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  data: any = [];
+  records: Observable<any>;
 
-  roverCollection: AngularFirestoreCollection<Rover>;
-  rover: Observable<Rover[]>;
-
-  records : Observable<any>;
-  rec
-  chartOptions: {};
-
-  waterLevel;
-  iaq;
-  ts;
+  status;
 
   constructor(
     private db: AngularFireDatabase,
-    private afs: AngularFirestore,
-    public fbService: FirebasedataService,
-    private dialog: MatDialog,
-    private router : Router
+
+    public fbService: FirebasedataService
   ) {
     this.items = this.db.list('items').valueChanges();
   }
@@ -111,27 +72,24 @@ export class FirstRoomComponent implements OnInit {
   ngOnInit() {
     // this.fbService.getObjects();
     // this.fbService.item;
-  
 
     // WORKING FOR NOW
-    this.records = this.db.object('records').valueChanges();
-    
-  }
+    this.records = this.db.list('records').valueChanges();
+    this.fbService.getAirQuality().on('value', (snapshot) => {
+      console.log(snapshot.val());
 
-  getRecordsObjects() {
-    const waterLevel = this.waterLevel;
-    const ts = this.ts;
-    const airQuality = this.iaq;
-
-    this.rec = this.db.object('records').set({
-      waterLevel : this.waterLevel,
-      ts : this.ts,
-      airQuality : this.iaq,
+      if (snapshot.val() >= 0 && snapshot.val() <= 12) {
+        this.status = 'Acceptable/Good';
+      } else if (snapshot.val() >= 13 && snapshot.val() <= 35.4) {
+        this.status = 'Moderate';
+      } else if (snapshot.val() >= 35.5 && snapshot.val() <= 150.4) {
+        this.status = 'Unhealthy for Sensitive Group';
+      } else if (snapshot.val() >= 150.5 && snapshot.val() <= 250.4) {
+        this.status = 'Very Unhealthy';
+      } else {
+        this.status = 'Hazardous';
+      }
+      console.log(this.status);
     });
   }
-
-
-
-
-
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import {
+  AngularFireDatabase,
+  snapshotChanges,
+} from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +16,6 @@ import { FirebasedataService } from 'src/app/shared/firebasedata.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RoverDetailsComponent } from './rover-details/rover-details.component';
 import { RoomsComponent } from './rover-details/rooms/rooms.component';
-import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -30,15 +32,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
     weight: 'January 20, 2022',
     symbol: '34%',
     status: 'good',
-  }
+  },
 ];
 
 export interface Rover {
-  room: string;
+  // room: string;
   disinfectionTime: Date;
-  date: firebase.firestore.FieldValue;
+  // date: firebase.firestore.FieldValue;
   airQuality: string;
-  batteryStatus: string;
+  iaqStatus: string;
 }
 
 @Component({
@@ -58,53 +60,49 @@ export class DashboardComponent implements OnInit {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  data: any = [];
-
-  roverCollection: AngularFirestoreCollection<Rover>;
-  rover: Observable<Rover[]>;
-
+  roverCollection: AngularFirestoreCollection<any>;
+  rover: Observable<any[]>;
+  records: Observable<any>;
   airQuality: any;
   status: any;
-
-  title = "Rover Application";
-
+  public lastDisinfect: any;
+  title = 'Rover Application';
   chartOptions: {};
   constructor(
     private db: AngularFireDatabase,
-    private afs: AngularFirestore,
     public fbService: FirebasedataService,
-    private dialog: MatDialog,
-    private router : Router
+    private dialog: MatDialog
   ) {
-    this.items = this.db.list('items').valueChanges();
+    this.items = this.db.list('nodeMCU').valueChanges();
 
-    // this.roverCollection = this.afs.collection('rover');
-    // this.rover = this.roverCollection.valueChanges();
+    this.records = this.db.list('records').valueChanges();
   }
 
   ngOnInit() {
     this.fbService.getObjects(); // Contains all the meta data from NODEMCU
-    this.fbService.item
+    this.fbService.item;
 
     this.fbService.getAirQuality().on('value', (snapshot) => {
       console.log(snapshot.val());
       this.embed(snapshot.val());
-    })
+      if (snapshot.val() >= 0 && snapshot.val() <= 12) {
+        this.status = 'Acceptable/Good';
+      } else if (snapshot.val() >= 13 && snapshot.val() <= 35.4) {
+        this.status = 'Moderate';
+      } else if (snapshot.val() >= 35.5 && snapshot.val() <= 150.4) {
+        this.status = 'Unhealthy for Sensitive Group';
+      } else if (snapshot.val() >= 150.5 && snapshot.val() <= 250.4) {
+        this.status = 'Very Unhealthy';
+      } else {
+        this.status = 'Hazardous';
+      }
+      console.log(this.status);
+    });
 
-    console.log(this.onChange());
-    
-   if(this.airQuality >= 0 && this.airQuality <= 12) {
-      this.status = 'Acceptable/Good';
-    } else if(this.fbService.iaq >= 13 && this.airQuality <= 35.4) {
-      this.status = 'Moderate';
-    } else if(this.airQuality >= 35.5 && this.airQuality <= 150.4) {
-      this.status = 'Unhealthy for Sensitive Group';
-    } else if(this.airQuality >= 150.5 && this.airQuality <= 250.4) {
-      this.status = 'Very Unhealthy';
-    } else {
-      this.status = 'Hazardous';
-    }
+    this.fbService.getTS().on('value', (snapshot) => {
+      this.embedTS(snapshot.val());
+      this.onChange();
+    });
   }
 
   goToDetails() {
@@ -114,18 +112,27 @@ export class DashboardComponent implements OnInit {
   }
 
   onChange() {
-    return this.fbService.onChange();
+    const recordRef = this.db.list('records');
+    {
+      recordRef.push({
+        disinfectionTime: Date.now(),
+        airQuality: this.airQuality,
+        iaqStatus: this.status,
+      });
+    }
   }
 
-  embed(air : any){
+  embed(air: any) {
     this.airQuality = air;
+  }
+
+  embedTS(ts: any) {
+    this.lastDisinfect = ts;
   }
 
   toSeeRooms() {
     this.dialog.open(RoomsComponent, {
-      width: '50rem'
-    })
+      width: '50rem',
+    });
   }
-
-
 }

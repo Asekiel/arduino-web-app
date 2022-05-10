@@ -10,7 +10,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 
@@ -82,6 +82,8 @@ import { RoomsComponent } from './components/dashboard/rover-details/rooms/rooms
     MdbDropdownModule,
     MatMenuModule,
     CoreModule,
+    ReactiveFormsModule,
+    FormsModule,
     // DashCoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase))
