@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
 import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-  AngularFirestoreDocument,
-} from '@angular/fire/compat/firestore';
+  AngularFireDatabase,
+  AngularFireList,
+  AngularFireObject,
+} from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,9 +19,7 @@ export class FirebasedataService {
   iaq;
   ts;
   air: any;
-  constructor(
-    private db: AngularFireDatabase, 
-    private afs: AngularFirestore) {
+  constructor(private db: AngularFireDatabase, private afs: AngularFirestore) {
     // const listRef = db.list('items');
     // const shirtsRef = db.list<any>('shirts');
     // this.items = db.list('items').valueChanges();
@@ -34,38 +32,20 @@ export class FirebasedataService {
     // })
   }
 
-
-  
-
   getAirQuality() {
-   this.air = this.db.database.ref('nodeMCU').child('IAQ');
-
-   return this.air;
+    this.air = this.db.database.ref('nodeMCU').child('IAQ');
+    return this.air;
   }
 
   getWaterLevel() {
-    return this.waterLevel = this.db.database.ref('nodeMCU').child('waterLevel');
- 
-   }
+    return (this.waterLevel = this.db.database
+      .ref('nodeMCU')
+      .child('waterLevel'));
+  }
 
-  onChange() {
-    // const waterLevel = this.waterLevel;
-    // const ts = this.ts;
-    // const airQuality = this.iaq;
-
-    // const recordsOfRover: AngularFirestoreCollection<any> =
-    //   this.afs.collection<any>('records');
-    // const data = {
-    //   waterLevel: waterLevel,
-    //   ts: ts,
-    //   airQuality: airQuality,
-    // };
-    // recordsOfRover.add(data);
-
-    // queryy
-
-    
-
+  getTS() {
+    this.ts = this.db.database.ref('nodeMCU').child('lastDisinfect');
+    return this.ts;
   }
 
   // addRecordsTOData() {
@@ -73,10 +53,5 @@ export class FirebasedataService {
   //   this.records.subscribe(res => {
   //     console.log(res);
   //   })
-  // }
-
-
-  // records() {
-    
   // }
 }

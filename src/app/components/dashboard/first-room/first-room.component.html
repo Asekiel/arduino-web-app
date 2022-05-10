@@ -1,5 +1,6 @@
 <!-- col col-sm-3 col-xs-12 -->
- <!-- col-sm-9 col-xs-12 -->    <!-- col-md-offset-1 col-md-10 -->
+<!-- col-sm-9 col-xs-12 -->
+<!-- col-md-offset-1 col-md-10 -->
 <!-- <div class="container-fluid">
   <div class="row">
       <div class="">
@@ -128,24 +129,21 @@
   </div>
 </div> -->
 
-
-
 <div class="design-bar"></div>
 
 <div class="recently-added-table">
-    <main class="newly-added">
-        <table>
-            <tr>
-                <td>JASDASDJ</td>
-            </tr>
-        </table>
-    </main>
+  <main class="newly-added">
+    <table>
+      <tr>
+        <td>JASDASDJ</td>
+      </tr>
+    </table>
+  </main>
 </div>
 
-
 <div class="container-fluid">
-    <main class="mt-5 pt-5">
-      <!-- <div class="header">
+  <main class="mt-5 pt-5">
+    <!-- <div class="header">
           <div class="title-text">
               <h1>All Building</h1>
           </div>
@@ -157,53 +155,70 @@
           </div>
       </div> -->
 
-      <!-- <button (click)="isBack()"></button> -->
-      <table mat-table [dataSource]="dataSource">
+    <!-- <button (click)="isBack()"></button> -->
+    <table
+      mat-table
+      [dataSource]="records |async"
+    >
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>Room</th>
+        <td mat-cell *matCellDef="let element">309</td>
+      </ng-container>
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef>Room</th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name" >
+        <th mat-header-cell *matHeaderCellDef >Disinfection time</th>
+        <td mat-cell *matCellDef="let record" >
+          {{record.disinfectionTime | date : 'short'}}
+          <!-- {{( records | async )?.lastDisinfect | date : "short" }} -->
+        </td>
+      </ng-container>
+      <!-- ng-change= "onChange()" -->
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef>Water Level</th>
+        <td mat-cell *matCellDef="let record">
+          {{record.waterLevel}}
+          <!-- {{ (records | async)?.waterLevel }} -->
+        </td>
+      </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Disinfection time </th>
-          <td mat-cell *matCellDef="let element"> {{( records | async )?.lastDisinfect | date : "short" }} </td>
-        </ng-container>
-        <!-- ng-change= "onChange()" -->
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Water Level </th>
-          <td mat-cell *matCellDef="let element">  {{ ( records | async )?.waterLevel }} </td>
-        </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef>Air Quality</th>
+        <td mat-cell *matCellDef="let record">
+          {{record.airQuality}}
+          <!-- {{ (records | async)?.IAQ }} -->
+        </td>
+      </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Air Quality </th>
-          <td mat-cell *matCellDef="let element">  {{ ( records | async )?.IAQ }}</td>
-        </ng-container>
-
-        <!-- <ng-container matColumnDef="waterLevel">
+      <!-- <ng-container matColumnDef="waterLevel">
           <th mat-header-cell *matHeaderCellDef> Water Level </th>
           <td mat-cell *matCellDef="let element"> {{ ( fbService.item | async)?.waterLevel }} </td>
         </ng-container> -->
 
-        <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef>Battery Status </th>
-          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-        </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Air Quality Status</th>
+        <td mat-cell *matCellDef="let record">{{ record.iaqStatus }}</td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="cursor: pointer;" class="hover"></tr>
-      </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons
-                     aria-label="Select page of periodic elements">
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        style="cursor: pointer"
+        class="hover"
+      ></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
     </mat-paginator>
-    </main>
-    <button mat-icon-button [routerLink]="['/dashboard']" class="btn">
-      <mat-icon>keyboard_backspace</mat-icon>
-    </button>
-  </div>
-
+  </main>
+  <button mat-icon-button [routerLink]="['/dashboard']" class="btn">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+</div>
