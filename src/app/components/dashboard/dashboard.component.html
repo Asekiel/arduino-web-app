@@ -165,14 +165,6 @@
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Disinfection time</th>
         <td mat-cell *matCellDef="let element">
-          <input
-            type="text"
-            [(ngModel)]="lastDisinfect"
-            (ngModelChange)="onChange()"
-          />
-          <!-- <div [(ngModel)]="lastDisinfect" (ngModelChange)="onChange($event)">
-
-        </div>-->
           {{ (fbService.item | async)?.lastDisinfect | date: "short" }}
         </td>
       </ng-container>

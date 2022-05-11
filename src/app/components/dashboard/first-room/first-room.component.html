@@ -179,7 +179,7 @@
       <ng-container matColumnDef="weight">
         <th mat-header-cell *matHeaderCellDef>Water Level</th>
         <td mat-cell *matCellDef="let record">
-          {{record.waterLevel}}
+          {{(fbService.item|async)?.waterLevel}}
           <!-- {{ (records | async)?.waterLevel }} -->
         </td>
       </ng-container>
